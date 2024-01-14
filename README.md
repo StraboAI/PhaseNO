@@ -1,9 +1,11 @@
 [![DOI](https://zenodo.org/badge/641315064.svg)](https://zenodo.org/doi/10.5281/zenodo.10224300)
 
-# PhaseNO 
+# PhaseNO
 Phase Neural Operator for Multi-Station Phase Picking from Dynamic Seismic Networks.
 
-![Method](https://github.com/sun-hongyu/PhaseNO/blob/master/phaseno.png)
+**StraboAI implementation as a package.**
+
+![Method](phaseno.png)
 
 ## 1. Citation
 ```
@@ -14,22 +16,23 @@ Sun, H., Ross, Z.E., Zhu, W. and Azizzadenesheli, K., 2023. Phase Neural Operato
 
 Create an environment with conda for PhaseNO
 ```
-conda env create -f env.yml
+conda create -n phaseno
 conda activate phaseno
+python -m pip -e install .
 ```
 
 ## 3. Pre-trained model
 Located in directory: models/*.ckpt
 
-## 4. Example 
+## 4. Example
 Located in directory: example
 
 - phaseno_predict.ipynb
-  
+
   Use the pre-trained model to pick phases from one-hour continuous data of the 2019 Ridgecrest earthquake sequence.
 
 - phaseno_plot.ipynb
-  
+
   Plot the predicted probabilities and picks for all stations.
 
 
