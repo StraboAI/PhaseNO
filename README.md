@@ -21,7 +21,7 @@ Create an environment with conda for PhaseNO
 ```bash
 conda create -n phaseno
 conda activate phaseno
-python -m pip -e install .
+python -m pip install git+https://github.com/StraboAI/PhaseNO.git
 ```
 
 ## 3. Pre-trained model
