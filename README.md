@@ -2,7 +2,7 @@
 
 # PhaseNO
 
-## StraboAI implementation as a package.
+**StraboAI implementation as a package.**
 
 Phase Neural Operator for Multi-Station Phase Picking from Dynamic Seismic Networks.
 
