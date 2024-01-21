@@ -21,7 +21,7 @@ Create an environment with conda for PhaseNO
 ```bash
 conda create -n phaseno
 conda activate phaseno
-python -m pip -e install .
+python -m pip install git+https://github.com/StraboAI/PhaseNO.git
 ```
 
 ## 3. Pre-trained model
@@ -40,7 +40,8 @@ Located in directory: example
 
   Plot the predicted probabilities and picks for all stations.
 
-### Using with BPMF
+
+## 5. Using with BPMF
 
 [BPMF](https://github.com/ebeauce/Seismic_BPMF) is a python package for autmoated seismic event detection, location, and template matching that relies on backprojection of "features" created from raw seismic traces. A recently published [high-resolution catalog of seismicity leading up to the 2019 Ridgecrest sequence](https://doi.org/10.1029/2023GL104375) used [Phasenet](https://github.com/AI4EPS/PhaseNet)-derived phase probability features with BPMF. To use PhaseNO phase probabilities for input into the beamforming algorithm, install the package in your environment (see above) and replace the [Phasenet-specific code](https://ebeauce.github.io/Seismic_BPMF/tutorial/notebooks/5_backprojection.html) with the following code:
 
