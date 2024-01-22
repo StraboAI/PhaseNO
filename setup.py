@@ -24,7 +24,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     license="MIT",
-    packages=["PhaseNo"],
+    packages=["PhaseNO"],
     install_requires=[
         "lightning",
         "torch",
