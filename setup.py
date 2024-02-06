@@ -29,7 +29,7 @@ setup(
         "lightning",
         "torch",
         "torch_geometric",
-        "torch-cluster",
+        "torch_cluster",
         #following are for example, not strictly necessary
         "ipykernel",
         "matplotlib",

@@ -14,7 +14,7 @@ from PhaseNO.utilities import (
 
 class PhaseNOPredictor:
 
-    def __init__(self, net, graph_type=None, k=10, radius=1):
+    def __init__(self, net, graph_type=None, k=10, radius=1, checkpoint=None):
         """PhaseNO predictor for BPMF
 
         Args:
@@ -42,7 +42,9 @@ class PhaseNOPredictor:
         self.net["x"] = station_coords.T[0]
         self.net["y"] = station_coords.T[1]
 
-        self.model = PhaseNO.load_from_checkpoint('../models/epoch=19-step=1140000.ckpt').to(self.device)
+        if checkpoint is None:
+            checkpoint = '../models/epoch=19-step=1140000.ckpt'
+        self.model = PhaseNO.load_from_checkpoint(checkpoint).to(self.device)
 
     def _make_graph(self, graph_type=None, k=10, radius=1):
         # make the graph and return edge index tensor
@@ -135,7 +137,7 @@ class PhaseNOPredictor:
         return X
 
     def _predict(self, X):
-        # Currently, PhaseNO doesn't seem to predict on batches
+        # Currently, PhaseNO doesn't predict on batches
         # loops over each segment individually
         # TODO: figure out how to make PhaseNO predict on batches, will speed up
         preds = torch.Tensor()
