@@ -39,6 +39,8 @@ class PhaseNOPredictor:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.net = net
         self.edge_index, station_coords = self._make_graph(graph_type=graph_type, k=k, radius=radius)
+        self.edge_index = self.edge_index.to(self.device)
+        x.to(self.device)
         self.net["x"] = station_coords.T[0]
         self.net["y"] = station_coords.T[1]
 
@@ -132,6 +134,7 @@ class PhaseNOPredictor:
         # matches dims 0 and 2 to X_ dims:
         coords = coords.unsqueeze(-1).unsqueeze(0)
         coords = coords.repeat((traces.shape[0],1,1,traces.shape[-1]))
+        print("traces and coords shapes",traces.shape, coords.shape)
         X = torch.concat([traces, coords], dim=2)
 
         return X
